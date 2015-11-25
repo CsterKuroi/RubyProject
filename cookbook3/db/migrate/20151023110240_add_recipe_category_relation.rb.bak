@@ -1,0 +1,4 @@
+class AddRecipeCategoryRelation < ActiveRecord::Migration
+  def change
+  end
+end
