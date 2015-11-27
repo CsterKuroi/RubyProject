@@ -1,6 +1,1 @@
-test merge
-<<<<<<< HEAD
-22
-=======
-1
->>>>>>> origin/master
+test merge 4444
