@@ -1,0 +1,40 @@
+# encoding: GBK
+<h1><%= @product.product_name %>详情</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @product.product_name %>
+</p>
+
+<p>
+  <strong>Product description:</strong>
+  <%= @product.product_description %>
+</p>
+
+<p>
+  <strong>Ptype:</strong>
+  <%= @product.ptype.ptype_name if @product.ptype%>
+</p>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+<h2>评论</h2>
+<div id="comments">
+<% @product.comments.each do |comment| %>
+  <strong>Posted 
+     <%= time_ago_in_words(comment.created_at) %>
+	</strong> 
+	<%= link_to("delete",[comment.product, comment],method: :delete,data: { confirm: 'Are you sure?' })%>
+	<br />
+	<%= comment.comment_body %><br />
+	<% end %>
+</div>
+
+<%= form_for [@product,Comment.new] do |f| %>
+  <p>
+    <%= f.label :comment_body, "New Comment" %> <br />
+    <%= f.text_area :comment_body, :rows => 5 %>
+  </p>
+  <p><%= f.submit "添加评论" %></p>
+<% end %>

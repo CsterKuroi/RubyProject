@@ -1,0 +1,29 @@
+# encoding: GBK
+<p id="notice"><%= notice %></p>
+<h1><%= @ptype.ptype_name %>类型详情</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>产品名称</th>
+      <th>产品描述</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ptype.products.each do |product| %>
+      <tr>
+        <td><%= product.product_name %></td>
+        <td><%= product.product_description %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_ptype_path(@ptype) %> |
+<%= link_to 'Back', ptypes_path %>
