@@ -1,1 +1,0 @@
-('A'..'Z').each do |c| ('A'..c).each{|i| print i}; puts end

@@ -1,4 +1,0 @@
-class AddInstructionToRecipe < ActiveRecord::Migration
-  def change
-  end
-end
